@@ -1,0 +1,146 @@
+section,key,param,value
+curve,stress,peak_min,-4
+curve,stress,height,0.6
+curve,stress,rise,0.35
+curve,stress,fall,0.22
+curve,stress,tail_share,0
+curve,stress,tail_fall,1
+curve,priming,peak_min,5
+curve,priming,height,0.35
+curve,priming,rise,0.45
+curve,priming,fall,1.3
+curve,priming,tail_share,0
+curve,priming,tail_fall,1
+curve,complex,peak_min,8
+curve,complex,height,0.92
+curve,complex,rise,0.4
+curve,complex,fall,0.5
+curve,complex,tail_share,0.5
+curve,complex,tail_fall,2.6
+curve,gsdmd,peak_min,15
+curve,gsdmd,height,0.3
+curve,gsdmd,rise,0.45
+curve,gsdmd,fall,0.5
+curve,gsdmd,tail_share,0
+curve,gsdmd,tail_fall,1
+curve,il,peak_min,40
+curve,il,height,0.55
+curve,il,rise,0.5
+curve,il,fall,1.8
+curve,il,tail_share,0.3
+curve,il,tail_fall,1
+sustained,complex,anchor_min,15
+sustained,complex,level,0.78
+sustained,complex,slope,0.045
+sustained,complex,fall_min,1440
+sustained,complex,fall_width,0.45
+sustained,il,anchor_min,60
+sustained,il,level,0.53
+sustained,il,slope,0.03
+sustained,il,fall_min,1440
+sustained,il,fall_width,0.45
+label_curves,stress,kind,curve
+label_curves,stress,curve,stress
+label_curves,stress,text,Cellular stress
+label_curves,stress,subtitle,"ATP release, ionic shifts, ROS<br>mitochondrial & mechanical stress"
+label_curves,stress,x,1.22
+label_curves,stress,y,1.04
+label_curves,stress,hjust,0.5
+label_curves,stress,target_x,1.3
+label_curves,stress,leader,TRUE
+label_curves,complex,kind,curve
+label_curves,complex,curve,complex
+label_curves,complex,text,"NLRP3, ASC, caspase-1"
+label_curves,complex,subtitle,
+label_curves,complex,x,2.55
+label_curves,complex,y,1.1
+label_curves,complex,hjust,0
+label_curves,complex,target_x,2.1
+label_curves,complex,leader,TRUE
+label_curves,gsdmd,kind,curve
+label_curves,gsdmd,curve,gsdmd
+label_curves,gsdmd,text,GSDMD
+label_curves,gsdmd,subtitle,
+label_curves,gsdmd,x,3.24
+label_curves,gsdmd,y,0.24
+label_curves,gsdmd,hjust,0
+label_curves,gsdmd,target_x,2.75
+label_curves,gsdmd,leader,TRUE
+label_curves,il,kind,curve
+label_curves,il,curve,il
+label_curves,il,text,"IL-1β, IL-18"
+label_curves,il,subtitle,
+label_curves,il,x,2.38
+label_curves,il,y,0.54
+label_curves,il,hjust,1
+label_curves,il,target_x,2.5
+label_curves,il,leader,TRUE
+label_curves,sustained,kind,note
+label_curves,sustained,curve,complex_s
+label_curves,sustained,text,possible sustained response<br>after strenuous or<br>muscle-damaging exercise
+label_curves,sustained,subtitle,
+label_curves,sustained,x,4.78
+label_curves,sustained,y,0.97
+label_curves,sustained,hjust,0
+label_curves,sustained,target_x,4.28
+label_curves,sustained,leader,TRUE
+label_stages,casp1,kind,curve
+label_stages,casp1,curve,casp1
+label_stages,casp1,text,caspase-1
+label_stages,casp1,subtitle,
+label_stages,casp1,x,2.35
+label_stages,casp1,y,1.62
+label_stages,casp1,hjust,0
+label_stages,casp1,target_x,2.2
+label_stages,casp1,leader,TRUE
+label_stages,il,kind,curve
+label_stages,il,curve,il
+label_stages,il,text,"IL-1β, IL-18"
+label_stages,il,subtitle,
+label_stages,il,x,4.1
+label_stages,il,y,1.66
+label_stages,il,hjust,0.5
+label_stages,il,target_x,3.6
+label_stages,il,leader,TRUE
+label_stages,sustained,kind,note
+label_stages,sustained,curve,complex_s
+label_stages,sustained,text,possible sustained response
+label_stages,sustained,subtitle,
+label_stages,sustained,x,5.55
+label_stages,sustained,y,2.86
+label_stages,sustained,hjust,0.5
+label_stages,sustained,target_x,5
+label_stages,sustained,leader,TRUE
+text,phase1_title,value,Phase 1
+text,phase1_sub,value,Cellular stress
+text,phase2_title,value,Phase 2
+text,phase2_sub,value,Inflammasome-related signalling
+text,phase3_title,value,Phase 3
+text,phase3_sub,value,Return towards baseline
+text,bar0,value,Exercise
+text,bar1,value,immediate
+text,bar2,value,early post-exercise
+text,bar3,value,early recovery
+text,bar4,value,late recovery
+text,bar5,value,delayed response
+text,x_title,value,Time after end of exercise
+text,y_title,value,"schematic, not to scale"
+text,row1_title,value,Cellular stress
+text,row1_sub,value,"ATP release, ionic shifts, ROS, mitochondrial & mechanical stress"
+text,row2_title,value,Priming
+text,row2_sub,value,"NF-κB, NLRP3 expression, pro-IL-1β"
+text,row3_title,value,Inflammasome assembly
+text,row3_sub,value,"NLRP3–ASC assembly, ASC oligomerisation"
+text,row4_title,value,Caspase-1 activation and cytokine processing
+text,row4_sub,value,"caspase-1 activation, IL-1β/IL-18 maturation"
+text,row5_title,value,Pyroptotic execution
+text,row5_sub,value,GSDMD cleavage
+setting,style,value,curves
+setting,show_sustained,value,TRUE
+setting,show_stress,value,TRUE
+setting,phase_b1_min,value,9
+setting,phase_b2_min,value,660
+setting,font,value,Arial
+setting,fig_width,value,183
+setting,height_curves,value,100
+setting,height_stages,value,125

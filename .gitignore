@@ -1,0 +1,13 @@
+# Only the editor app is versioned; drafts, previews and exports in this
+# folder stay local.
+/*
+!/.gitignore
+!/.github/
+!/README.md
+!/fig3_app/
+!/fig3_functions.R
+!/fig3_params.csv
+
+.DS_Store
+.Rhistory
+.Rproj.user/

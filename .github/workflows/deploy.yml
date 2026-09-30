@@ -1,0 +1,80 @@
+# Builds the Shiny editor as a Shinylive (webR) site and deploys it to
+# GitHub Pages. app.R, fig3_functions.R and fig3_params.csv are copied into
+# one folder; Liberation Sans (metric-compatible with Arial, SIL OFL) is
+# added so the browser-side R renders labels like the local Arial export.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  FONT_URL: https://github.com/liberationfonts/liberation-fonts/files/7261482/liberation-fonts-ttf-2.1.5.tar.gz
+  FONT_SHA256: 7191c669bf38899f73a2094ed00f7b800553364f90e2637010a69c0e268f25d0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::shinylive
+            any::shiny
+            any::shinyWidgets
+            any::dplyr
+            any::tidyr
+            any::purrr
+            any::tibble
+            any::readr
+            any::ggplot2
+            any::patchwork
+            any::ggtext
+            any::ragg
+            any::svglite
+            any::systemfonts
+            any::zip
+
+      - name: Stage app
+        run: |
+          mkdir -p _app/fonts
+          cp fig3_app/app.R fig3_functions.R fig3_params.csv _app/
+          curl -sSL -o fonts.tar.gz "$FONT_URL"
+          echo "$FONT_SHA256  fonts.tar.gz" | sha256sum -c -
+          tar -xzf fonts.tar.gz -C _app/fonts --strip-components=1 \
+            liberation-fonts-ttf-2.1.5/LiberationSans-Regular.ttf \
+            liberation-fonts-ttf-2.1.5/LiberationSans-Bold.ttf \
+            liberation-fonts-ttf-2.1.5/LICENSE
+
+      - name: Build Shinylive site
+        run: Rscript -e 'shinylive::export("_app", "_site")'
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
